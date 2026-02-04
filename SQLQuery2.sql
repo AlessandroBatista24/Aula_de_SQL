@@ -154,3 +154,37 @@ FROM Livro L
 INNER JOIN Assunto A ON L.IDAssunto = A.IDAssunto
 INNER JOIN Editora E ON L.IDEditora = E.IDEditora;
 
+--Tabela de LivroAutor:
+
+INSERT INTO LivroAutor (IDLivro, IDAutor) VALUES 
+(112, 30), -- Código Limpo -> Robert Martin
+(118, 7),  -- Neuromancer -> William Gibson
+(119, 14), -- Fundação -> Isaac Asimov
+(120, 25), -- Duna -> Frank Herbert
+(121, 19), -- O Hobbit -> J.R.R. Tolkien
+(122, 16), -- 1984 -> George Orwell
+(123, 28), -- Fahrenheit 451 -> Ray Bradbury
+(124, 18), -- O Iluminado -> Stephen King
+(125, 17), -- Admirável Mundo Novo -> Aldous Huxley
+(126, 14), -- Eu, Robô -> Isaac Asimov
+(127, 15), -- 2001: Uma Odisséia no Espaço -> Arthur Clarke
+(128, 10), -- Ensaio Sobre a Cegueira -> Jose Saramago
+(129, 1),  -- O Nome da Rosa -> Umberto Eco
+(131, 8),  -- Ulysses -> James Joyce
+(139, 22), -- Sandman: Prelúdio -> Neil Gaiman
+(140, 22); -- Mitologia Nórdica -> Neil Gaiman
+GO
+
+--Visualizando o cadastro.
+
+SELECT * FROM LivroAutor;
+
+--Visualização com INNER JOIN
+SELECT NomeLivro, NomeAutor, SobrenomeAutor
+FROM Livro
+INNER JOIN LivroAutor
+ ON Livro.IDLivro = LivroAutor.IDLivro
+INNER JOIN Autor
+ ON Autor.IDAutor = LivroAutor.IDAutor
+ORDER BY NomeLivro;
+

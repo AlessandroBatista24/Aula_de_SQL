@@ -188,3 +188,60 @@ INNER JOIN Autor
  ON Autor.IDAutor = LivroAutor.IDAutor
 ORDER BY NomeLivro;
 
+/* Clausula ORDER BY
+    ORDENA OS RESULTADOS
+    */
+
+SELECT *FROM Livro
+ORDER BY NomeLivro;
+
+SELECT NomeLivro, IDEditora
+FROM Livro
+ORDER BY IDEditora;
+
+SELECT NomeLivro, PreçoLivro
+FROM Livro
+ORDER BY PreçoLivro DESC;
+
+/* Como ordenar
+por mais de um coluna
+*/
+
+SELECT NomeLivro, PreçoLivro, IDEditora
+FROM Livro
+ORDER BY IDEditora, PreçoLivro ASC;
+
+--Ordenando com mais de um parametro.
+
+SELECT NomeLivro, PreçoLivro, IDEditora
+FROM Livro
+ORDER BY IDEditora ASC, PreçoLivro DESC;
+
+-- SELECT TOP
+
+SELECT TOP (2) NomeLivro
+FROM Livro
+ORDER BY NomeLivro;
+
+-- Ordem Descendente
+
+SELECT TOP (15) NomeLivro
+FROM Livro
+ORDER BY NomeLivro DESC;
+
+-- Usando o percentual
+
+SELECT TOP (15) PERCENT NomeLivro
+FROM Livro
+ORDER BY NomeLivro;
+
+SELECT TOP (15) PERCENT NomeLivro
+FROM Livro
+ORDER BY NomeLivro DESC;
+
+-- WITH TINES
+
+SELECT TOP (3) WITH TIES NomeLivro, IDAssunto
+FROM Livro
+ORDER BY IDAssunto;
+

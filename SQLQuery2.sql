@@ -245,3 +245,31 @@ SELECT TOP (3) WITH TIES NomeLivro, IDAssunto
 FROM Livro
 ORDER BY IDAssunto;
 
+/*   WHERE
+Pesquisa com filtro
+*/
+
+SELECT NomeLivro, DATAPUB
+FROM Livro
+WHERE IDEditora = 3;
+
+SELECT IDAutor, NomeAutor
+FROM Autor
+WHERE SobrenomeAutor = 'Barret';
+
+SELECT NomeLivro, PreçoLivro
+FROM Livro
+WHERE PreçoLivro > 100.00
+ORDER BY PreçoLivro;
+
+-- Concatenando o SELECT com uma SUB CONSULTA.
+
+SELECT NomeLivro, DATAPUB
+FROM Livro
+WHERE IDEditora IN (
+    SELECT IDEditora
+    FROM Editora
+    WHERE NomeEditora = 'ALEPH'
+    );
+
+-- AQUI OUVE UM ERRO COMO A BUSCA ENCONTROU MAIS DE UMA EDITORA PRECISEI SUBSTITUIR "O" = POR "IN'
